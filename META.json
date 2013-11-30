@@ -36,6 +36,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Email::Sender" : "1.300006",
             "Net::SMTPS" : "0.03",
             "perl" : "5.008005"
          }

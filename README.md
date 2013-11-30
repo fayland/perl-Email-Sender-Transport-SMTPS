@@ -4,7 +4,39 @@ Email::Sender::Transport::SMTPS - Email::Sender joins Net::SMTPS
 
 # SYNOPSIS
 
-    use Email::Sender::Transport::SMTPS;
+	use Email::Sender::Simple qw(sendmail);
+	use Email::Sender::Transport::SMTPS;
+	use Try::Tiny;
+
+	my $transport = Email::Sender::Transport::SMTPS->new(
+	    host => 'smtp.gmail.com',
+	    ssl  => 'starttls',
+	    sasl_username => 'myaccount@gmail.com',
+	    sasl_password => 'mypassword',
+	);
+
+	# my $message = Mail::Message->read($rfc822)
+	#         || Email::Simple->new($rfc822)
+	#         || Mail::Internet->new([split /\n/, $rfc822])
+	#         || ...
+	#         || $rfc822;
+	# read L<Email::Abstract> for more details
+
+	use Email::Simple::Creator; # or other Email::
+	my $message = Email::Simple->create(
+	    header => [
+	        From    => 'myaccount@gmail.com',
+	        To      => 'to@mail.com',
+	        Subject => 'Subject title',
+	    ],
+	    body => 'Content.',
+	);
+
+	try {
+	    sendmail($message, { transport => $transport });
+	} catch {
+	    die "Error sending email: $_";
+	};
 
 # DESCRIPTION
 
