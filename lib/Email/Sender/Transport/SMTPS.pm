@@ -284,7 +284,7 @@ documentation.
 
 =head2 send email with Gmail
 
-  my $smtp  = Email::Sender::Transport::SMTPS->new({
+  my $transport = Email::Sender::Transport::SMTPS->new({
     host => 'smtp.gmail.com',
     ssl  => 'starttls',
     sasl_username => 'myaccount@gmail.com',
