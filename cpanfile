@@ -1,6 +1,6 @@
 requires 'perl', '5.008005';
 
-# requires 'Some::Module', 'VERSION';
+requires 'Net::SMTPS', '0.03';
 
 on test => sub {
     requires 'Test::More', '0.88';

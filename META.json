@@ -1,5 +1,5 @@
 {
-   "abstract" : "Blah blah blah",
+   "abstract" : "Email::Sender joins Net::SMTPS",
    "author" : [
       "Fayland Lam <fayland@gmail.com>"
    ],
@@ -36,6 +36,7 @@
       },
       "runtime" : {
          "requires" : {
+            "Net::SMTPS" : "0.03",
             "perl" : "5.008005"
          }
       },
@@ -46,6 +47,17 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/fayland/perl-Email-Sender-Transport-SMTPS/issues"
+      },
+      "homepage" : "https://github.com/fayland/perl-Email-Sender-Transport-SMTPS",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/fayland/perl-Email-Sender-Transport-SMTPS.git",
+         "web" : "https://github.com/fayland/perl-Email-Sender-Transport-SMTPS"
+      }
+   },
    "version" : "0.01"
 }
 
