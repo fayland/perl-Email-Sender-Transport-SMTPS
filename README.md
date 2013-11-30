@@ -78,6 +78,25 @@ documentation.
       sasl_password => 'mypassword',
     });
 
+## send email with mandrillapp
+
+    my $transport = Email::Sender::Transport::SMTPS->new(
+      host => 'smtp.mandrillapp.com',
+      ssl  => 'starttls',
+      sasl_username => 'myaccount@blabla.com',
+      sasl_password => 'api_key',
+      helo => 'fayland.me',
+    );
+
+## send with Amazon SES
+
+    my $transport = Email::Sender::Transport::SMTPS->new(
+      host => 'email-smtp.us-east-1.amazonaws.com',
+      ssl  => 'starttls',
+      sasl_username => 'xx',
+      sasl_password => 'zzz',
+    );
+
 # AUTHOR
 
 Fayland Lam <fayland@gmail.com>
