@@ -14,6 +14,7 @@ my $transport = Email::Sender::Transport::SMTPS->new(
     ssl  => 'starttls',
     sasl_username => $ENV{TEST_USERNAME},
     sasl_password => $ENV{TEST_PASSWORD},
+    debug => 1
 );
 
 use Email::Simple::Creator;    # or other Email::

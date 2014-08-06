@@ -1,6 +1,7 @@
 Revision history for Email-Sender-Transport-SMTPS
 
 {{$NEXT}}
+        - add debug option
 
 0.02  2013-11-30 11:24:45 CST
 		- more examples

@@ -13,6 +13,7 @@ Email::Sender::Transport::SMTPS - Email::Sender joins Net::SMTPS
 	    ssl  => 'starttls',
 	    sasl_username => 'myaccount@gmail.com',
 	    sasl_password => 'mypassword',
+        debug => 0, # or 1
 	);
 
 	# my $message = Mail::Message->read($rfc822)
@@ -60,6 +61,7 @@ The following attributes may be passed to the constructor:
 - `helo`: what to say when saying HELO; no default
 - `localaddr`: local address from which to connect
 - `localport`: local port from which to connect
+- `debug`: enable debug info for Net::SMTPS
 
 # PARTIAL SUCCESS
 
@@ -71,7 +73,7 @@ documentation.
 
 ## send email with Gmail
 
-    my $smtp  = Email::Sender::Transport::SMTP->new({
+    my $transport = Email::Sender::Transport::SMTPS->new({
       host => 'smtp.gmail.com',
       ssl  => 'starttls',
       sasl_username => 'myaccount@gmail.com',

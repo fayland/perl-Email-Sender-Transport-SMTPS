@@ -28,6 +28,7 @@ has allow_partial_success => (is => 'ro', isa => Bool, default => sub { 0 });
 has helo      => (is => 'ro', isa => Str);
 has localaddr => (is => 'ro');
 has localport => (is => 'ro', isa => Int);
+has debug     => (is => 'ro', isa => Bool);
 
 # I am basically -sure- that this is wrong, but sending hundreds of millions of
 # messages has shown that it is right enough.  I will try to make it textbook
@@ -88,6 +89,7 @@ sub _net_smtp_args {
     defined $self->helo      ? (Hello     => $self->helo)      : (),
     defined $self->localaddr ? (LocalAddr => $self->localaddr) : (),
     defined $self->localport ? (LocalPort => $self->localport) : (),
+    defined $self->debug     ? (Debug     => $self->debug) : (),
   );
 }
 
@@ -213,6 +215,7 @@ Email::Sender::Transport::SMTPS - Email::Sender joins Net::SMTPS
 	    ssl  => 'starttls',
 	    sasl_username => 'myaccount@gmail.com',
 	    sasl_password => 'mypassword',
+        debug => 0, # or 1
 	);
 
 	# my $message = Mail::Message->read($rfc822)
@@ -271,6 +274,8 @@ The following attributes may be passed to the constructor:
 =item C<localaddr>: local address from which to connect
 
 =item C<localport>: local port from which to connect
+
+=item C<debug>: enable debug info for Net::SMTPS
 
 =back
 
