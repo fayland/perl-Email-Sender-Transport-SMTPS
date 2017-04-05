@@ -4,48 +4,47 @@ Email::Sender::Transport::SMTPS - Email::Sender joins Net::SMTPS
 
 # SYNOPSIS
 
-	use Email::Sender::Simple qw(sendmail);
-	use Email::Sender::Transport::SMTPS;
-	use Try::Tiny;
+        use Email::Sender::Simple qw(sendmail);
+        use Email::Sender::Transport::SMTPS;
+        use Try::Tiny;
 
-	my $transport = Email::Sender::Transport::SMTPS->new(
-	    host => 'smtp.gmail.com',
-	    ssl  => 'starttls',
-	    sasl_username => 'myaccount@gmail.com',
-	    sasl_password => 'mypassword',
+        my $transport = Email::Sender::Transport::SMTPS->new(
+            host => 'smtp.gmail.com',
+            ssl  => 'starttls',
+            sasl_username => 'myaccount@gmail.com',
+            sasl_password => 'mypassword',
         debug => 0, # or 1
-	);
+        );
 
-	# my $message = Mail::Message->read($rfc822)
-	#         || Email::Simple->new($rfc822)
-	#         || Mail::Internet->new([split /\n/, $rfc822])
-	#         || ...
-	#         || $rfc822;
-	# read L<Email::Abstract> for more details
+        # my $message = Mail::Message->read($rfc822)
+        #         || Email::Simple->new($rfc822)
+        #         || Mail::Internet->new([split /\n/, $rfc822])
+        #         || ...
+        #         || $rfc822;
+        # read L<Email::Abstract> for more details
 
-	use Email::Simple::Creator; # or other Email::
-	my $message = Email::Simple->create(
-	    header => [
-	        From    => 'myaccount@gmail.com',
-	        To      => 'to@mail.com',
-	        Subject => 'Subject title',
-	    ],
-	    body => 'Content.',
-	);
+        use Email::Simple::Creator; # or other Email::
+        my $message = Email::Simple->create(
+            header => [
+                From    => 'myaccount@gmail.com',
+                To      => 'to@mail.com',
+                Subject => 'Subject title',
+            ],
+            body => 'Content.',
+        );
 
-	try {
-	    sendmail($message, { transport => $transport });
-	} catch {
-	    die "Error sending email: $_";
-	};
+        try {
+            sendmail($message, { transport => $transport });
+        } catch {
+            die "Error sending email: $_";
+        };
 
 # DESCRIPTION
 
+**DEPRECATED**. Please use [Email::Sender::Transport::SMTP](https://metacpan.org/pod/Email::Sender::Transport::SMTP) instead.
+
 This transport is used to send email over SMTP, either with or without secure
 sockets (SSL/TLS). it uses the great [Net::SMTPS](https://metacpan.org/pod/Net::SMTPS).
-
-that's based on a patch for Email::Sender::Transport::SMTP. [https://github.com/fayland/email-sender/commit/bba4a590be87506248349293c5b457dfa533daae](https://github.com/fayland/email-sender/commit/bba4a590be87506248349293c5b457dfa533daae)
-most of the code are copied from [Email::Sender::Transport::SMTP](https://metacpan.org/pod/Email::Sender::Transport::SMTP)
 
 # ATTRIBUTES
 
