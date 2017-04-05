@@ -243,11 +243,10 @@ Email::Sender::Transport::SMTPS - Email::Sender joins Net::SMTPS
 
 =head1 DESCRIPTION
 
+B<DEPRECATED>. Please use L<Email::Sender::Transport::SMTP> instead.
+
 This transport is used to send email over SMTP, either with or without secure
 sockets (SSL/TLS). it uses the great L<Net::SMTPS>.
-
-that's based on a patch for Email::Sender::Transport::SMTP. L<https://github.com/fayland/email-sender/commit/bba4a590be87506248349293c5b457dfa533daae>
-most of the code are copied from L<Email::Sender::Transport::SMTP>
 
 =head1 ATTRIBUTES
 
