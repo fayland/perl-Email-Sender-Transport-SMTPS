@@ -7,7 +7,7 @@ use MooX::Types::MooseLike::Base qw(Bool Int Str);
 use Email::Sender::Failure::Multi;
 use Email::Sender::Success::Partial;
 use Email::Sender::Util;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 has host => (is => 'ro', isa => Str,  default => sub { 'localhost' });
 has ssl  => (is => 'ro', isa => Str);
