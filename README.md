@@ -13,7 +13,12 @@ Email::Sender::Transport::SMTPS - Email::Sender joins Net::SMTPS
             ssl  => 'starttls',
             sasl_username => 'myaccount@gmail.com',
             sasl_password => 'mypassword',
-        debug => 0, # or 1
+            debug => 0, # or 1
+            ssl_args => {
+                # Add IO::Socket::SSL options here
+                SSL_verify_mode   => SSL_VERIFY_PEER,
+                SSL_verifycn_name => 'smtp.gmail.com'
+            }
         );
 
         # my $message = Mail::Message->read($rfc822)
@@ -52,6 +57,7 @@ The following attributes may be passed to the constructor:
 
 - `host`: the name of the host to connect to; defaults to `localhost`
 - `ssl`: 'ssl' / 'starttls' / undef, if true, passed to [Net::SMTPS](https://metacpan.org/pod/Net::SMTPS) doSSL.
+- `ssl_args`: options passed to [IO::Socket::SSL](https://metacpan.org/pod/IO::Socket::SSL)
 - `port`: port to connect to; defaults to 25 for non-SSL, 465 for 'ssl' and 587 for 'starttls'
 - `timeout`: maximum time in secs to wait for server; default is 120
 - `sasl_username`: the username to use for auth; optional
