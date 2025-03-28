@@ -13,12 +13,7 @@ Email::Sender::Transport::SMTPS - Email::Sender joins Net::SMTPS
             ssl  => 'starttls',
             sasl_username => 'myaccount@gmail.com',
             sasl_password => 'mypassword',
-            debug => 0, # or 1
-            ssl_args => {
-                # Add IO::Socket::SSL options here
-                SSL_verify_mode   => SSL_VERIFY_PEER,
-                SSL_verifycn_name => 'smtp.gmail.com'
-            }
+        debug => 0, # or 1
         );
 
         # my $message = Mail::Message->read($rfc822)
@@ -46,18 +41,17 @@ Email::Sender::Transport::SMTPS - Email::Sender joins Net::SMTPS
 
 # DESCRIPTION
 
-**DEPRECATED**. Please use [Email::Sender::Transport::SMTP](https://metacpan.org/pod/Email::Sender::Transport::SMTP) instead.
+**DEPRECATED**. Please use [Email::Sender::Transport::SMTP](https://metacpan.org/pod/Email%3A%3ASender%3A%3ATransport%3A%3ASMTP) instead.
 
 This transport is used to send email over SMTP, either with or without secure
-sockets (SSL/TLS). it uses the great [Net::SMTPS](https://metacpan.org/pod/Net::SMTPS).
+sockets (SSL/TLS). it uses the great [Net::SMTPS](https://metacpan.org/pod/Net%3A%3ASMTPS).
 
 # ATTRIBUTES
 
 The following attributes may be passed to the constructor:
 
 - `host`: the name of the host to connect to; defaults to `localhost`
-- `ssl`: 'ssl' / 'starttls' / undef, if true, passed to [Net::SMTPS](https://metacpan.org/pod/Net::SMTPS) doSSL.
-- `ssl_args`: options passed to [IO::Socket::SSL](https://metacpan.org/pod/IO::Socket::SSL)
+- `ssl`: 'ssl' / 'starttls' / undef, if true, passed to [Net::SMTPS](https://metacpan.org/pod/Net%3A%3ASMTPS) doSSL.
 - `port`: port to connect to; defaults to 25 for non-SSL, 465 for 'ssl' and 587 for 'starttls'
 - `timeout`: maximum time in secs to wait for server; default is 120
 - `sasl_username`: the username to use for auth; optional
@@ -71,7 +65,7 @@ The following attributes may be passed to the constructor:
 # PARTIAL SUCCESS
 
 If `allow_partial_success` was set when creating the transport, the transport
-may return [Email::Sender::Success::Partial](https://metacpan.org/pod/Email::Sender::Success::Partial) objects.  Consult that module's
+may return [Email::Sender::Success::Partial](https://metacpan.org/pod/Email%3A%3ASender%3A%3ASuccess%3A%3APartial) objects.  Consult that module's
 documentation.
 
 # EXAMPLES
